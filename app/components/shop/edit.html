@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>{{title}}</h1>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <form name="shopForm" ng-submit="shopForm.$valid && save(shop)" role="form" novalidate>
+      <div class="form-group" ng-class="{ 'has-error': shopForm.name.$invalid && (shopForm.name.$touched || shopForm.$submitted) }">
+        <label for="name">Name</label>
+        <input name="name" type="text" class="form-control" required ng-model="shop.name">
+        <div class="control-label" ng-messages="shopForm.name.$error" ng-if="shopForm.name.$touched || shopForm.$submitted">
+          <div ng-messages-include="app/shared/ns-errors/errors.html"></div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error': shopForm.address.$invalid && (shopForm.address.$touched || shopForm.$submitted) }">
+        <label for="address">Address</label>
+        <input name="address" type="text" class="form-control" required ng-model="shop.address">
+        <div class="control-label" ng-messages="shopForm.address.$error" ng-if="shopForm.address.$touched || shopForm.$submitted">
+          <div ng-messages-include="app/shared/ns-errors/errors.html"></div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error': shopForm.workingHours.$invalid && (shopForm.workingHours.$touched || shopForm.$submitted) }">
+        <label for="workingHours">Working hours</label>
+        <input name="workingHours" type="text" class="form-control" required ng-model="shop.workingHours">
+        <div class="control-label" ng-messages="shopForm.workingHours.$error" ng-if="shopForm.workingHours.$touched || shopForm.$submitted">
+          <div ng-messages-include="app/shared/ns-errors/errors.html"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Products</label>
+        <ns-selector ng-model="shop.products" options="products"></ns-selector>
+      </div>
+
+      <button type="submit" class="btn btn-primary">{{ isSubmitting ? 'Saving...' : 'Save' }}</button>
+    </form>
+  </div>
+</div>

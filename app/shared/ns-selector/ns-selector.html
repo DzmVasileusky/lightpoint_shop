@@ -1,0 +1,3 @@
+<div class="ns-selector">
+  <span class="ns-selector_option" ng-repeat="option in options" ng-class="isSelected(option) && 'ns-selector_option--selected'" ng-click="onClick($event)" data-option-id="{{$index}}">{{option.name}}</span>
+</div>
